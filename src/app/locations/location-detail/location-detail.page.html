@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="/locations" slot="start"></ion-back-button>
+    <ion-title>{{ description }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <capacitor-google-map #map></capacitor-google-map>
+  </div>
+</ion-content>

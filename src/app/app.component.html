@@ -1,3 +1,45 @@
-<ion-app>
+<!-- <ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-button slot="start">
+        <ion-icon name="book-outline"></ion-icon>
+      </ion-button>
+
+      <ion-title> Memorisee </ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+<!-- <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-menu-toggle>
+        <ion-button>Click to close the menu</ion-button>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
   <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
+<ion-app>
+  <ion-menu-toggle>
+    <ion-menu side="start" contentId="main">
+      <ion-header>
+        <ion-toolbar color="danger">
+          <ion-title> Memorisee </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list>
+          <ion-item lines="none" routerLink="/locations">
+            <ion-icon name="map" slot="start"></ion-icon>
+            <ion-label>Saved Locations</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  </ion-menu-toggle>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

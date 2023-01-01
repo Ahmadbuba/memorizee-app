@@ -1,0 +1,48 @@
+<!-- <ion-content>
+  <div class="container">
+    <capacitor-google-map #map></capacitor-google-map>
+  </div>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Bookmark Location</ion-title>
+    <ion-menu-button slot="start"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Name/Description</ion-label>
+            <ion-input
+              type="text"
+              id="description"
+              ngModel
+              name="description"
+              required=""
+              #description="ngModel"
+            ></ion-input>
+            <span *ngIf="!description.valid && description.touched"
+              >Please enter a description</span
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button
+            type="submit"
+            color="success"
+            [disabled]="!description.valid"
+          >
+            <ion-title>Add</ion-title>
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

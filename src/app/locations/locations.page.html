@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-back-button slot="start" defaultHref="/tabs/gallery"></ion-back-button>
+    <ion-button slot="primary" routerLink="/tabs/bookmark" color="light">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+
+    <ion-title>Your Saved Locations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10" offset="1" *ngFor="let location of savedLocations">
+        <ion-card
+          color="medium"
+          [routerLink]="['/locations','location-detail', location.description, location.latitude, location.longitude]"
+        >
+          <ion-card-title class="center"
+            >{{ location.description }}</ion-card-title
+          >
+        </ion-card>
+      </ion-col>
+      <div class="center" *ngIf="savedLocations.length <= 0">
+        Your saved locations will appear here, you currently have no saved
+        location
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

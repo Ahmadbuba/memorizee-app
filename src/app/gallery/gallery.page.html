@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title>My Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="4"
+        class="ion-justify-content-around"
+        *ngFor="let photo of photoService.photos; index as position"
+      >
+        <ion-card (click)="setOpenAndPath(true, photo.webviewPath, photo.date)">
+          <ion-img [src]="photo.webviewPath"></ion-img>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <div class="center" *ngIf="photoService.photos.length <= 0">
+      You have no memory, feel free to add pictures to your memories
+    </div>
+  </ion-grid>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-card>
+        <ion-img [src]="path"></ion-img>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="4" offset-sm="4">
+              <div>{{ displayDate }}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="2" offset-sm="5">
+              <ion-button (click)="setOpen(false)">Close</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ng-template>
+  </ion-modal>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()" color="danger">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
