@@ -1,0 +1,7 @@
+{
+  "name": "memorizee-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
